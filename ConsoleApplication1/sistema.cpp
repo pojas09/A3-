@@ -44,14 +44,3 @@ bool Sistema::autenticarFuncionario(const string& login, const string& senha)
 	return false;
 }
 
-
-void obterAtributos() {
-	cout << "Login:" << endl; cin >> login;
-	cout << "Senha:" << endl; cin >> senha;
-	cout << "Email:" << endl; cin >> email;
-	cout << "Nome" << endl; cin >> nome;
-	cout << "CPF:" << endl; cin >> cpf;
-	cout << "Telefone:" << endl; cin >> telefone;
-	cout << "Data de Nascimento:" << endl; cin >> nascimento;
-	cout << "ID:" << endl; cin >> id;
-}
