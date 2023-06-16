@@ -39,3 +39,13 @@ string Usuario::getSenha() const
 {
 	return senha;
 }
+
+string Usuario::getEmail() const
+{
+	return email;
+}
+
+string Usuario::getCpf() const
+{
+	return cpf;
+}

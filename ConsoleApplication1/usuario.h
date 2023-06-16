@@ -30,6 +30,8 @@ using namespace std;
 
 		string getLogin() const;
 		string getSenha() const;
+		string getEmail() const;
+		string getCpf() const;
 
 
 	};

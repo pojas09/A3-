@@ -6,6 +6,8 @@
 
 using namespace std;
 
+        
+
     class Funcionario : public Usuario {
 
         private:
@@ -18,7 +20,7 @@ using namespace std;
 
         void setId_funcionario(const int& novoId_funcionario);
         int getId_funcionario() const;
-    
-};
+
+    };
 
 #endif

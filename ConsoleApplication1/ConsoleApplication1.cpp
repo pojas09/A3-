@@ -30,7 +30,15 @@ int main()
 
 		case 1:
 
-			cout << "Cleber";
+			cout << "Login:"; cin >> login;
+			cout << "Senha:"; cin >> senha;
+			if (sistema.autenticarCliente(login, senha)) {
+				cout << "Logado";
+			}
+			else {
+				cout << "Login Inválido!" << endl;
+				voltar = true;
+			}
 			break;
 
 		case 2:
@@ -38,13 +46,14 @@ int main()
 			cout << "Login:"; cin >> login;
 			cout << "Senha:"; cin >> senha;
 			cout << "Email:"; cin >> email;
-			cout << "Nome"; cin >> nome;
+			cout << "Nome:"; cin >> nome;
 			cout << "CPF:"; cin >> cpf;
 			cout << "Telefone:"; cin >> telefone;
 			cout << "Data de Nascimento:"; cin >> nascimento;
 			cout << "ID:"; cin >> id;
 
 			sistema.cadastrarCliente(login, senha, email, nome, cpf, nascimento, telefone, id);
+			voltar = true;
 			break;
 
 		case 3:
@@ -77,7 +86,7 @@ int main()
 
 		default:
 
-			cout << "Escolha inválida, encerrando sessão!" << endl;
+			cout << "Opção inválida, encerrando sessão!" << endl;
 			break;
 		}
 
