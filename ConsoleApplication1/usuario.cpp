@@ -3,32 +3,32 @@
 Usuario::Usuario(const string& login, const string& senha, const string& email, const string& nome, const string& cpf, const string& nascimento, const string& telefone)
 : login(login), senha(senha), email(email), nome(nome), cpf(cpf), nascimento(nascimento), telefone(telefone) {}
 
-void Usuario::setLogin(string _login) {
-	login = _login;
+void Usuario::setLogin(const string& novoLogin) {
+	login = novoLogin;
 }
 
-void Usuario::setSenha(string _senha) {
-	senha = _senha;
+void Usuario::setSenha(const string& novaSenha) {
+	senha = novaSenha;
 }
 
-void Usuario::setNome(string _nome) {
-	nome = _nome;
+void Usuario::setNome(const string& novoNome) {
+	nome = novoNome;
 }
 
-void Usuario::setTelefone(string _telefone) {
-	telefone = _telefone;
+void Usuario::setTelefone(const string& novoTelefone) {
+	telefone = novoTelefone;
 }
 
-void Usuario::setEmail(string _email) {
-	email = _email;
+void Usuario::setEmail(const string& novoEmail) {
+	email = novoEmail;
 }
 
-void Usuario::setNascimento(string _nascimento) {
-	nascimento = _nascimento;
+void Usuario::setNascimento(const string& novoNascimento) {
+	nascimento = novoNascimento;
 }
 
-void Usuario::setCpf(string _identificacao) {
-	cpf = _identificacao;
+void Usuario::setCpf(const string& novoCpf) {
+	cpf = novoCpf;
 }
 
 string Usuario::getLogin() const {

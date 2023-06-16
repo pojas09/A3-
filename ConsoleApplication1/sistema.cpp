@@ -4,6 +4,8 @@
 
 Sistema::Sistema()
 {
+	Funcionario* novoFuncionario = new Funcionario("admin", "0000", "locadora@gmail.com", "administrador", "", "", "", 1);
+	funcionarios.push_back(novoFuncionario);
 }
 
 void Sistema::cadastrarCliente(const string& login, const string& senha, const string& email, const string& nome, const string& cpf, const string& nascimento, const string& telefone, const int& id_cliente)
@@ -31,7 +33,7 @@ bool Sistema::autenticarCliente(const string& login, const string& senha)
 	return false;
 }
 
-bool Sistema::autenticarFuncionario(const string& login, const string& senha, const string& email, const string& nome, const string& cpf, const string& nascimento, const string& telefone, const int& id_funcionario)
+bool Sistema::autenticarFuncionario(const string& login, const string& senha)
 {
 	for (const auto& funcionario : funcionarios) {
 		if (funcionario->getLogin() == login && funcionario->getSenha() == senha) {
