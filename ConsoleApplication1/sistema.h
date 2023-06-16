@@ -18,6 +18,7 @@
 
         Sistema();
 
+        void obterAtributos();
         void cadastrarCliente(const string& login, const string& senha, const string& email, const string& nome, const string& cpf, const string& nascimento, const string& telefone, const int& id_cliente);
         void cadastrarFuncionario(const string& login, const string& senha, const string& email, const string& nome, const string& cpf, const string& nascimento, const string& telefone, const int& id_funcionario);
         

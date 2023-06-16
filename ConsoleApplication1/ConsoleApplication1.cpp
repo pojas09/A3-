@@ -48,7 +48,7 @@ using namespace std;
 
 		cout << "======= Administração =======";
 		cout << "(1) Logar" << endl;
-		cout << "(2) Cadastrar" << endl;
+		cout << "(2) Voltar" << endl;
 		cin >> opcao;
 
 	
