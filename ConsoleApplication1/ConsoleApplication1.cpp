@@ -73,16 +73,12 @@ int main()
 				cout << "Opção inválida, encerrando sessão!" << endl;
 				break;
 			}
-			
 			break;
 
 		default:
 
 			cout << "Escolha inválida, encerrando sessão!" << endl;
 			break;
-
-
-
 		}
 
 	}while (voltar);
