@@ -20,6 +20,7 @@ int main()
 		cout << "(1) Logar" << endl;
 		cout << "(2) Registrar" << endl;
 		cout << "(3) Acessar como Funcionario" << endl;
+		cout << "(4) Sair";
 		int opcao;
 		cin >> opcao;
 
