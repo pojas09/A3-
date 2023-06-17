@@ -9,8 +9,6 @@ int main()
 
 	string login, senha, email, nome, cpf, nascimento, telefone;
 
-	int id;
-
 	bool voltar;
 
 	Sistema sistema;
@@ -18,7 +16,7 @@ int main()
 	do {
 		
 		voltar = false;
-		cout << "======== Locadora ========" << endl;
+		cout << "\n====== Locadora ========" << endl;
 		cout << "(1) Logar" << endl;
 		cout << "(2) Registrar" << endl;
 		cout << "(3) Acessar como Funcionario" << endl;
@@ -30,10 +28,13 @@ int main()
 
 		case 1:
 
-			cout << "Login:"; cin >> login;
-			cout << "Senha:"; cin >> senha;
+			cout << "Login:" << endl; cin >> login;
+			cout << "Senha:" << endl; cin >> senha;
 			if (sistema.autenticarCliente(login, senha)) {
-				cout << "Logado";
+				cout << "\n===== Menu Inicial =====" << endl;
+				cout << "(1)" << endl;
+				cout << "(2)" << endl;
+				cout << "(3)" << endl;
 			}
 			else {
 				cout << "Login Inválido!" << endl;
@@ -43,22 +44,13 @@ int main()
 
 		case 2:
 
-			cout << "Login:"; cin >> login;
-			cout << "Senha:"; cin >> senha;
-			cout << "Email:"; cin >> email;
-			cout << "Nome:"; cin >> nome;
-			cout << "CPF:"; cin >> cpf;
-			cout << "Telefone:"; cin >> telefone;
-			cout << "Data de Nascimento:"; cin >> nascimento;
-			cout << "ID:"; cin >> id;
-
-			sistema.cadastrarCliente(login, senha, email, nome, cpf, nascimento, telefone, id);
+			sistema.cadastrarCliente();
 			voltar = true;
 			break;
 
 		case 3:
 
-			cout << "======= Administração =======" << endl;
+			cout << "\n===== Administração =======" << endl;
 			cout << "(1) Logar" << endl;
 			cout << "(2) Voltar" << endl;
 			int opcao2;
@@ -68,7 +60,19 @@ int main()
 
 			case 1:
 
-				cout << "Login*";
+				cout << "Login:"; cin >> login;
+				cout << "Senha:"; cin >> senha;
+				if (sistema.autenticarFuncionario(login, senha)) {
+					cout << "\n===== Opções do Admin =======" << endl;
+					cout << "(1)" << endl;
+					cout << "(2)" << endl;
+					cout << "(3)" << endl;
+					cout << "(4)" << endl;
+				}
+				else {
+					cout << "Login Inválido!" << endl;
+					voltar = true;
+				}
 				break;
 
 

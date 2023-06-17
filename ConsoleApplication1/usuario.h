@@ -17,7 +17,7 @@ using namespace std;
 		string cpf;
 
 		public:
-
+		
 		Usuario(const string& login, const string& senha, const string& email, const string& nome, const string& cpf, const string& nascimento, const string& telefone);
 	
 		void setLogin(const string& novoLogin);
