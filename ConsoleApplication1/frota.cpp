@@ -36,6 +36,7 @@ Carro Frota::criarCarro()
 		do {
 			cout << "(1) Volkswagen T-Cross" << endl;
 			cout << "(2) BMW X1" << endl;
+			cout << "\nModelo: ";
 			cin >> opcaoSuv;
 			if (opcaoSuv != 1 && opcaoSuv != 2)
 				cout << "\nEscolha inválida!" << endl;
@@ -56,6 +57,7 @@ Carro Frota::criarCarro()
 		do {
 			cout << "(1) Hyundai HB20" << endl;
 			cout << "(2) Fiat Mobi" << endl;
+			cout << "\nModelo: ";
 			cin >> opcaoCompacto;
 			if (opcaoCompacto != 1 && opcaoCompacto != 2)
 				cout << "\nEscolha inválida!" << endl;
@@ -78,6 +80,7 @@ Carro Frota::criarCarro()
 			cout << "(2) Fiat Cronos" << endl;
 			cout << "(3) Hyundai HB20S" << endl;
 			cout << "(4) BMW Serie 5" << endl;
+			cout << "\nModelo: ";
 			cin >> opcaoSedan;
 			if (opcaoSedan < 1 || opcaoSedan > 4)
 				cout << "\nEscolha inválida!" << endl;
@@ -108,7 +111,7 @@ Carro Frota::criarCarro()
 	}
 
 	do {
-		cout << "\n:(1) Prata" << endl;
+		cout << "\n(1) Prata" << endl;
 		cout << "(2) Preto" << endl;
 		cout << "(3) Branco" << endl;
 		cout << "\nCor:"; cin >> opcaoCor;
@@ -140,14 +143,14 @@ Carro Frota::criarCarro()
 		}
 
 	do {
-		cout << "\nAno:"; cin >> ano;
+		cout << "\nAno: "; cin >> ano;
 
 		if (ano < 2000 || ano > 2053)
 			cout << "\nInsira um ano apartir de 2000" << endl;
 	} while (ano < 2000 || ano > 2053);
 
 	do {
-		cout << "\nPreço:"; cin >> preco;
+		cout << "\nPreço: "; cin >> preco;
 
 		if (preco < 0)
 			cout << "\nValor inválido! Digite um número postivo" << endl;
@@ -155,14 +158,14 @@ Carro Frota::criarCarro()
 
 	do {
 
-		cout << "\nPlaca:"; cin >> placa;
+		cout << "\nPlaca: "; cin >> placa;
 		if (placa.size() != 7) {
 			cout << "Placa inválida! Formato requirido: XXXXXXX" << endl;
 		}
 	} while (placa.size() != 7);
 
 	do {
-		cout << "\nPotencia:"; cin >> potencia;
+		cout << "\nPotencia: "; cin >> potencia;
 
 		if (potencia < 0)
 			cout << "\nValor inválido! Digite um número postivo" << endl;
@@ -170,14 +173,14 @@ Carro Frota::criarCarro()
 
 
 	do {
-		cout << "\nBagagem:"; cin >> bagagem;
+		cout << "\nBagagem: "; cin >> bagagem;
 
 		if (bagagem < 0)
 			cout << "\nValor inválido! Digite um número postivo" << endl;
 	} while (bagagem < 0);
 
 	do {
-		cout << "\nTanque:"; cin >> gasolina;
+		cout << "\nTanque: "; cin >> gasolina;
 
 		if (gasolina < 0)
 			cout << "\nValor inválido! Digite um número positivo" << endl;
@@ -185,7 +188,7 @@ Carro Frota::criarCarro()
 
 	cout << "\nDigite '1' para verdadeiro ou '0' para falso" << endl;
 	do {
-		cout << "GPS:"; cin >> gps;
+		cout << "GPS: "; cin >> gps;
 	} while (gps != 1 && gps != 0);
 
 	int id_carro = veiculos.size() + 1;

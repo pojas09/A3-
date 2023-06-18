@@ -68,6 +68,7 @@ int main()
 				if (sistema.autenticarFuncionario(login, senha)) {
 
 					do {
+						voltar2 = false;
 						cout << "\n===== Opções do Admin =======" << endl;
 						cout << "(1) Adicionar Veículo" << endl;
 						cout << "(2) Remover Veículo" << endl;
