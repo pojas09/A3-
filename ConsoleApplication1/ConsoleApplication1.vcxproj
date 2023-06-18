@@ -127,14 +127,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="carro.cpp" />
     <ClCompile Include="cliente.cpp" />
     <ClCompile Include="ConsoleApplication1.cpp" />
+    <ClCompile Include="frota.cpp" />
     <ClCompile Include="funcionario.cpp" />
     <ClCompile Include="sistema.cpp" />
     <ClCompile Include="usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="carro.h" />
     <ClInclude Include="cliente.h" />
+    <ClInclude Include="frota.h" />
     <ClInclude Include="funcionario.h" />
     <ClInclude Include="sistema.h" />
     <ClInclude Include="usuario.h" />

@@ -65,10 +65,26 @@ int main()
 				cout << "Senha:"; cin >> senha;
 				if (sistema.autenticarFuncionario(login, senha)) {
 					cout << "\n===== Opções do Admin =======" << endl;
-					cout << "(1)" << endl;
-					cout << "(2)" << endl;
-					cout << "(3)" << endl;
-					cout << "(4)" << endl;
+					cout << "(1) Adicionar Veículo" << endl;
+					cout << "(2) Remover Veículo" << endl;
+					cout << "(3) Alterar Veículo" << endl;
+					cout << "(4) Cadastrar Funcionário" << endl;
+					cout << "(5) Exibir Frota" << endl;
+					cout << "(6) Sair" << endl;
+					int opcao3;
+					cin >> opcao3;
+
+					switch (opcao3) {
+					case 1:
+						
+					case 2:
+
+					case 3:
+
+					case 4:
+
+					default:
+					}
 				}
 				else {
 					cout << "Login Inválido!" << endl;
