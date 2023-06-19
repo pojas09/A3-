@@ -35,9 +35,10 @@ int main()
 			cout << "Senha:" << endl; cin >> senha;
 			if (sistema.autenticarCliente(login, senha)) {
 				cout << "\n===== Menu Inicial =====" << endl;
-				cout << "(1)" << endl;
-				cout << "(2)" << endl;
-				cout << "(3)" << endl;
+				cout << "(1) SUV's" << endl;
+				cout << "(2) Compactos" << endl;
+				cout << "(3) Sedans" << endl;
+				cout << "(4) Sair" << endl;
 			}
 			else {
 				cout << "Login Inválido!" << endl;
@@ -56,10 +57,10 @@ int main()
 			cout << "\n===== Administração =======" << endl;
 			cout << "(1) Logar" << endl;
 			cout << "(2) Voltar" << endl;
-			int opcao2;
-			cin >> opcao2;
+			int opcaoFuncionario;
+			cin >> opcaoFuncionario;
 
-			switch (opcao2) {
+			switch (opcaoFuncionario) {
 
 			case 1:
 
@@ -76,27 +77,105 @@ int main()
 						cout << "(4) Cadastrar Funcionário" << endl;
 						cout << "(5) Exibir Frota" << endl;
 						cout << "(6) Sair" << endl;
-						int opcao3;
-						cin >> opcao3;
+						int opcaoFuncionario2;
+						cin >> opcaoFuncionario2;
 
-						switch (opcao3) {
+						switch (opcaoFuncionario2) {
 
 						case 1:
 
-							frota.cadastrarCarro();
-							voltar2 = true;
+							cout << "(1) Sedan" << endl;
+							cout << "(2) Compacto" << endl;
+							cout << "(3) SUV" << endl;
+							int opcaoRegistroCarro;
+							cin >> opcaoRegistroCarro;
+
+								switch (opcaoRegistroCarro) {
+								case 1:
+									frota.cadastrarSedan();
+									break;
+								case 2:
+									frota.cadastrarCompacto();
+									break;
+								case 3:
+									frota.cadastrarSuv();
+									break;
+								default:
+									cout << "Opção inválida!" << endl;
+									break;
+								}
+								voltar2 = true;
 							break;
 
 						case 2:
 
+							cout << "(1) Sedan" << endl;
+							cout << "(2) Compacto" << endl;
+							cout << "(3) SUV" << endl;
+							int opcaoExclusaoCarro;
+							cin >> opcaoExclusaoCarro;
+								
+							switch (opcaoExclusaoCarro) {
+
+							case 1:
+								frota.removerSedan();
+								break;
+							case 2:
+								frota.removerCompacto();
+								break;
+							case 3:
+								frota.removerCompacto();
+								break;
+							default:
+								cout << "Opção inválida!" << endl;
+								break;
+							}
+							voltar2 = true;
 							break;
+
 						case 3:
+
+							cout << "(1) Sedan" << endl;
+							cout << "(2) Compacto" << endl;
+							cout << "(3) SUV" << endl;
+							int opcaoAlterarCarro;
+							cin >> opcaoAlterarCarro;
+								
+							switch (opcaoAlterarCarro) {
+
+							case 1:
+								frota.alterarSedan();
+								break;
+							case 2:
+								frota.alterarCompacto();
+								break;
+							case 3:
+								frota.alterarSuv();
+								break;
+							default:
+								cout << "Opção inválida!";
+							}
+							voltar2 = true;
 							break;
 
 						case 4:
+
+							sistema.cadastrarFuncionario();
+							voltar2 = true;
+							break;
+
+						case 5:
+
+							frota.exibirSedans();
+							frota.exibirCompactos();
+							frota.exibirSUVs();
+							voltar2 = true;
 							break;
 
 						default:
+
+							voltar2 = false;
+							voltar = true;
 							break;
 						}
 					} while (voltar2);

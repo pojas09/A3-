@@ -8,7 +8,6 @@ using namespace std;
 
 		private:
 
-		int id_carro;
 		int potencia;
 		int bagagem;
 		int ano;
@@ -23,9 +22,9 @@ using namespace std;
 
 		public:
 
-		Carro(const string& modelo, const string& tipoCarro, const string& cor, const int& ano, const float& preco, const string& placa, const int& potencia, const int& bagagem, const int& gasolina, const bool& gps, const int& id_carro);
+		Carro();
+		Carro(const string& modelo, const string& tipoCarro, const string& cor, const int& ano, const float& preco, const string& placa, const int& potencia, const int& bagagem, const int& gasolina, const bool& gps);
 	
-		int getId_carro() const;
 		int getAno() const;
 		int getPotencia() const;
 		int getBagagem() const;
@@ -36,6 +35,18 @@ using namespace std;
 		string getTipo_carro() const;
 		bool getGps() const;
 		float getPreco() const;
+
+		void setCor(const string& novaCor);
+		void setGps(const bool& novoGps);
+		void setPreco(const float& novoPreco);
+		void setModelo(const string& novoModelo);
+		void setTipo_carro(const string& novoTipo);
+		void setAno(const int& novoAno);
+		void setPotencia(const int& novaPotencia);
+		void setGasolina(const float& novaGasolina);
+		void setPlaca(const string& novaPlaca);
+		void setBagagem(const int& novaBagagem);
+		
 
 
 	};

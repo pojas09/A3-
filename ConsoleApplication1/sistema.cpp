@@ -154,7 +154,7 @@ void Sistema::cadastrarCliente()
 	cout << "Cliente cadastrado com sucesso!!!" << endl;
 }
 
-void Sistema::cadastrarFuncionario(const string& login, const string& senha, const string& email, const string& nome, const string& cpf, const string& nascimento, const string& telefone)
+void Sistema::cadastrarFuncionario()
 {
 
 	Funcionario novoFuncionario = criarFuncionario();

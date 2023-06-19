@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="carro.cpp" />
     <ClCompile Include="cliente.cpp" />
+    <ClCompile Include="compacto.h" />
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="frota.cpp" />
     <ClCompile Include="funcionario.cpp" />
@@ -140,7 +141,9 @@
     <ClInclude Include="cliente.h" />
     <ClInclude Include="frota.h" />
     <ClInclude Include="funcionario.h" />
+    <ClInclude Include="sedan.h" />
     <ClInclude Include="sistema.h" />
+    <ClInclude Include="suv.h" />
     <ClInclude Include="usuario.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
