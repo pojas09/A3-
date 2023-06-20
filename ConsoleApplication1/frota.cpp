@@ -6,6 +6,7 @@ using namespace std;
 
 Frota::Frota()
 {
+	endereco = "Av. Lagoa Mimosa";
 }
 
 void Frota::cadastrarSuv()
@@ -216,6 +217,50 @@ Carro Frota::criarCarro()
 	Carro novoCarro("", "", cor, ano, preco, placa, potencia, bagagem, gasolina, gps);
 
 	return novoCarro;
+}
+
+string Frota::obterModeloCarro(const string& placa)
+{
+	for (const auto& suv : suvs) {
+		if (suv->getPlaca() == placa) {
+			return suv->getModelo();
+			
+		}
+	}
+
+	for (const auto& sedan : sedans) {
+		if (sedan->getPlaca() == placa) {
+			return sedan->getModelo();
+		}
+	}
+
+	for (const auto& compacto : compactos) {
+		if (compacto->getPlaca() == placa) {
+			return compacto->getModelo();
+		}
+	}
+}
+
+string Frota::obterTipoCarro(const string& placa)
+{
+	for (const auto& suv : suvs) {
+		if (suv->getPlaca() == placa) {
+			return suv->getTipo_carro();
+
+		}
+	}
+
+	for (const auto& sedan : sedans) {
+		if (sedan->getPlaca() == placa) {
+			return sedan->getTipo_carro();
+		}
+	}
+
+	for (const auto& compacto : compactos) {
+		if (compacto->getPlaca() == placa) {
+			return compacto->getTipo_carro();
+		}
+	}
 }
 
 void Frota::removerSuv()
@@ -456,5 +501,15 @@ void Frota::exibirCompactos()
 		cout << "GPS: " << compacto->getGps() << endl;
 		cout << "------------------------" << endl;
 	}
+}
+
+void Frota::setEndereco(const string& novoEndereco)
+{
+	endereco = novoEndereco;
+}
+
+string Frota::getEndereco() const
+{
+	return endereco;
 }
 

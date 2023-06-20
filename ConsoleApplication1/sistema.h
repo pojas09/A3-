@@ -17,12 +17,12 @@
 
         Sistema();
 
-
         void cadastrarCliente();
         void cadastrarFuncionario();
         
         bool autenticarCliente(const string& login, const string& senha);
         bool autenticarFuncionario(const string& login, const string& senha);
+        string obterCpfCliente(const string& login);
         Cliente criarCliente();
         Funcionario criarFuncionario();
     };

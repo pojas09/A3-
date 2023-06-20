@@ -1,5 +1,9 @@
 #include "usuario.h"
 
+Usuario::Usuario()
+{
+}
+
 Usuario::Usuario(const string& login, const string& senha, const string& email, const string& nome, const string& cpf, const string& nascimento, const string& telefone)
 : login(login), senha(senha), email(email), nome(nome), cpf(cpf), nascimento(nascimento), telefone(telefone) {}
 

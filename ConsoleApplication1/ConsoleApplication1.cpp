@@ -2,6 +2,7 @@
 #include "sistema.h"
 #include "cliente.h"
 #include "frota.h"
+#include "pedido.h"
 
 using namespace std;
 
@@ -10,10 +11,11 @@ int main()
 
 	string login, senha, email, nome, cpf, nascimento, telefone;
 
-	bool voltar, voltar2;
+	bool voltar, voltar2, voltar3;
 
 	Sistema sistema;
 	Frota frota;
+
 
 	do {
 		
@@ -34,17 +36,53 @@ int main()
 			cout << "Login:" << endl; cin >> login;
 			cout << "Senha:" << endl; cin >> senha;
 			if (sistema.autenticarCliente(login, senha)) {
-				cout << "\n===== Menu Inicial =====" << endl;
-				cout << "(1) SUV's" << endl;
-				cout << "(2) Compactos" << endl;
-				cout << "(3) Sedans" << endl;
-				cout << "(4) Sair" << endl;
-			}
+				do {
+					voltar3 = false;
+					cout << "\n===== Menu Inicial =====" << endl;
+					cout << "(1) Alugar veículo" << endl;
+					cout << "(2) Verificar histórico" << endl;
+					cout << "(3) Sair" << endl;
+					int opcaoCategoria;
+					cin >> opcaoCategoria;
+
+					switch (opcaoCategoria) {
+
+					case 1:
+						frota.exibirSUVs();
+						frota.exibirCompactos();
+						frota.exibirSedans();
+						cout << "Digite a placa do carro que você deseja alugar: " << endl;
+						string placaEscolhida;
+						cin >> placaEscolhida;
+
+						if (frota.verificarPlaca(placaEscolhida)) {
+							
+							Pedido pedido;
+							pedido.exibirCheckin(placaEscolhida, sistema.obterCpfCliente(login));
+						}
+						else {
+							cout << "Placa inválida!" << endl;
+
+						}
+
+						voltar3 = true;
+						break;
+
+					case 2:
+						
+						break;
+
+					default:
+						voltar = true;
+						break;
+					}
+				} while (voltar3);
 			else {
 				cout << "Login Inválido!" << endl;
 				voltar = true;
 			}
 			break;
+			}
 
 		case 2:
 
