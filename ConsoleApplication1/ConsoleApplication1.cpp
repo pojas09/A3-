@@ -2,20 +2,22 @@
 #include "sistema.h"
 #include "cliente.h"
 #include "frota.h"
-#include "pedido.h"
+#include "registro.h"
 
 using namespace std;
 
 int main()
 {
 
-	string login, senha, email, nome, cpf, nascimento, telefone;
+	string login, senha, email, nome, cpf, nascimento, telefone, placaEscolhida;
 
 	bool voltar, voltar2, voltar3;
 
+	Registro registro;
 	Sistema sistema;
 	Frota frota;
 
+	frota.setEndereco("Av. Brasília");
 
 	do {
 		
@@ -52,13 +54,15 @@ int main()
 						frota.exibirCompactos();
 						frota.exibirSedans();
 						cout << "Digite a placa do carro que você deseja alugar: " << endl;
-						string placaEscolhida;
 						cin >> placaEscolhida;
 
 						if (frota.verificarPlaca(placaEscolhida)) {
+
+							Carro* carroEscolhido = frota.obterCarro(placaEscolhida);
+							Cliente* cliente = sistema.obterCliente(login);
 							
-							Pedido pedido;
-							pedido.exibirCheckin(placaEscolhida, sistema.obterCpfCliente(login));
+							registro.cadastrarCheckin(carroEscolhido, cliente);
+							
 						}
 						else {
 							cout << "Placa inválida!" << endl;
@@ -69,7 +73,10 @@ int main()
 						break;
 
 					case 2:
-						
+
+						registro.exibirCheckinsCliente(login);
+						registro.exibirCheckoutsCliente(login);
+						voltar3 = true;
 						break;
 
 					default:
@@ -77,13 +84,12 @@ int main()
 						break;
 					}
 				} while (voltar3);
+
+			}
 			else {
 				cout << "Login Inválido!" << endl;
 				voltar = true;
-			}
-			break;
-			}
-
+			} break;
 		case 2:
 
 			sistema.cadastrarCliente();
@@ -112,11 +118,20 @@ int main()
 						cout << "(1) Adicionar Veículo" << endl;
 						cout << "(2) Remover Veículo" << endl;
 						cout << "(3) Alterar Veículo" << endl;
-						cout << "(4) Cadastrar Funcionário" << endl;
-						cout << "(5) Exibir Frota" << endl;
-						cout << "(6) Sair" << endl;
+						cout << "(4) Exibir Frota" << endl;
+						cout << "(5) Cadastrar Funcionário" << endl;
+						cout << "(6) Remover Funcionário" << endl;
+						cout << "(7) Exibir Operações em Aberto" << endl;
+						cout << "(8) Exibir Operações Conclúidas" << endl;
+						cout << "(9) Validar um Checkout" << endl;
+						cout << "(10) Excluir um Checkout" << endl;
+						cout << "(11) Excluir um Checkin" << endl;
 						int opcaoFuncionario2;
 						cin >> opcaoFuncionario2;
+
+						string loginFuncionario, senhaFuncionario;
+						string placaExcluirCheckin, placaExcluirCheckout, placaCheckout;
+
 
 						switch (opcaoFuncionario2) {
 
@@ -197,21 +212,57 @@ int main()
 							break;
 
 						case 4:
-
-							sistema.cadastrarFuncionario();
-							voltar2 = true;
-							break;
-
-						case 5:
-
 							frota.exibirSedans();
 							frota.exibirCompactos();
 							frota.exibirSUVs();
 							voltar2 = true;
 							break;
 
-						default:
+						case 5:
+							sistema.cadastrarFuncionario();
+							voltar2 = true;
+							break;
 
+						case 6:
+							cout << "Deseja excluir um funcionário ?";
+							cout << "\nInforme o login: "; cin >> loginFuncionario;
+							cout << "\nInforme a senha:"; cin >> senhaFuncionario;
+							sistema.removerFuncionario(loginFuncionario, senhaFuncionario);
+							voltar2 = true;
+							break;
+
+						case 7:
+							registro.exibirCheckins();
+							voltar2 = true;
+							break;
+
+						case 8:
+							registro.exibirCheckouts();
+							voltar2 = true;
+							break;
+
+						case 9:
+							cout << "Informe a placa do carro: ";
+							cin >> placaCheckout;
+							registro.cadastrarCheckout(placaCheckout);
+							voltar2 = true;
+							break;
+
+						case 10:
+							cout << "Informe a placa do carro: ";
+							cin >> placaExcluirCheckout;
+							registro.removerCheckouts(placaExcluirCheckout);
+							voltar2 = true;
+							break;
+
+						case 11:
+							cout << "Informe a placa do carro: ";
+							cin >> placaExcluirCheckin;
+							registro.removerCheckins(placaExcluirCheckin);
+							voltar2 = true;
+							break;
+
+						default:
 							voltar2 = false;
 							voltar = true;
 							break;

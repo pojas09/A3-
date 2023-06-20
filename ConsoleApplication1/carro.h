@@ -1,6 +1,7 @@
 #ifndef CARRO_H
 #define CARRO_H
 #include <iostream>
+#include "frota.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ using namespace std;
 		string tipoCarro;
 		bool gps;
 		float preco;
+		Frota* frota;
 
 
 		public:
@@ -35,6 +37,7 @@ using namespace std;
 		string getTipo_carro() const;
 		bool getGps() const;
 		float getPreco() const;
+		Frota* getFrota();
 
 		void setCor(const string& novaCor);
 		void setGps(const bool& novoGps);
@@ -46,8 +49,7 @@ using namespace std;
 		void setGasolina(const float& novaGasolina);
 		void setPlaca(const string& novaPlaca);
 		void setBagagem(const int& novaBagagem);
-		
-
+		void setFrota(Frota* novaFrota);
 
 	};
 

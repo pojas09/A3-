@@ -5,9 +5,24 @@ using namespace std;
 
 
 Frota::Frota()
-{
-	endereco = "Av. Lagoa Mimosa";
-}
+{	
+	Sedan* novoSedan = new Sedan("Volkswagen Virtus", "Sedan", "Cinza", 2020, 92, "ASR2073", 115, 521, 52, 1);
+	sedans.push_back(novoSedan);
+	Sedan* novoSedan = new Sedan("Fiat Cronos", "Sedan", "Azul", 2022, 92, "ISA2808", 105, 500, 50, 0);
+	sedans.push_back(novoSedan);
+	Sedan* novoSedan = new Sedan("Hyundai HB20S", "Sedan", "Branco", 2019, 92, "BRU1403", 97, 450, 45, 0);
+	sedans.push_back(novoSedan);
+	Sedan* novoSedan = new Sedan("BMW Serie 5", "Sedan", "Preto", 2022, 92, "SAM2109", 290, 410, 55, 1);
+	sedans.push_back(novoSedan);
+	SUV* novoSUV = new SUV("T-Cross", "SUV", "Branco", 2021, 185, "ITA0964", 128, 373, 52, 1);
+	suvs.push_back(novoSUV);
+	SUV* novoSUV = new SUV("BMW X1", "SUV", "Branco", 2022, 185, "GMX4582", 150, 350, 55, 1);
+	suvs.push_back(novoSUV);
+	Compacto* novoCompacto = new Compacto("Fiat Mobi", "Compacto", "Vermelho", 2019, 78, "XSA13O2", 80, 215, 40, 0);
+	compactos.push_back(novoCompacto);
+	Compacto* novoCompacto = new Compacto("Hyundai HB20", "Compacto", "Cinza", 2020, 75, "IML1341", 92, 220, 45, 0);
+	compactos.push_back(novoCompacto);
+}   
 
 void Frota::cadastrarSuv()
 {
@@ -17,6 +32,7 @@ void Frota::cadastrarSuv()
 	Carro novoCarro = criarCarro();
 
 	if (verificarPlaca(novoCarro.getPlaca())) {
+		cout << "Já existe um veículo com essa placa!" << endl;
 		return;
 	};
 
@@ -62,6 +78,7 @@ void Frota::cadastrarSedan()
 	Carro novoCarro = criarCarro();
 
 	if (verificarPlaca(novoCarro.getPlaca())) {
+		cout << "Já existe um veículo com essa placa!" << endl;
 		return;
 	};
 
@@ -115,6 +132,7 @@ void Frota::cadastrarCompacto()
 	Carro novoCarro = criarCarro();
 
 	if(verificarPlaca(novoCarro.getPlaca())) {
+		cout << "Já existe um veículo com essa placa!" << endl;
 		return;
 	};
 
@@ -239,6 +257,7 @@ string Frota::obterModeloCarro(const string& placa)
 			return compacto->getModelo();
 		}
 	}
+	return "";
 }
 
 string Frota::obterTipoCarro(const string& placa)
@@ -261,6 +280,50 @@ string Frota::obterTipoCarro(const string& placa)
 			return compacto->getTipo_carro();
 		}
 	}
+	return "";
+}
+
+float Frota::obterPrecoCarro(const string& placa)
+{
+	for (const auto& suv : suvs) {
+		if (suv->getPlaca() == placa) {
+			return suv->getPreco();
+
+		}
+	}
+
+	for (const auto& sedan : sedans) {
+		if (sedan->getPlaca() == placa) {
+			return sedan->getPreco();
+		}
+	}
+
+	for (const auto& compacto : compactos) {
+		if (compacto->getPlaca() == placa) {
+			return compacto->getPreco();
+		}
+	}
+	return 0;
+}
+
+Carro* Frota::obterCarro(const string & placa)
+{
+	for (const auto& sedan : sedans) {
+		if (sedan->getPlaca() == placa) {
+		return sedan;
+		}
+	}
+	for (const auto& compacto : compactos) {
+		if (compacto->getPlaca() == placa) {
+		return compacto;
+		}
+	}
+	for (const auto& suv : suvs) {
+		if (suv->getPlaca() == placa) {
+		return suv;
+		}
+	}
+	return nullptr;
 }
 
 void Frota::removerSuv()
@@ -419,21 +482,18 @@ bool Frota::verificarPlaca(const string& placa)
 {
 	for (const auto& suv : suvs) {
 		if (suv->getPlaca() == placa) {
-			cout << "Já existe um veículo com essa placa" << endl;
 			return true;
 		}
 	}
 
 	for (const auto& sedan : sedans) {
 		if (sedan->getPlaca() == placa) {
-			cout << "Já existe um veículo com essa placa" << endl;
 			return true;
 		}
 	}
 
 	for (const auto& compacto : compactos) {
 		if (compacto->getPlaca() == placa) {
-			cout << "Já existe um veículo com essa placa" << endl;
 			return true;
 		}
 	}
@@ -484,7 +544,7 @@ void Frota::exibirSUVs()
 
 void Frota::exibirCompactos()
 {
-	if (sedans.empty()) {
+	if (compactos.empty()) {
 		cout << "A frota de compactos está vazia." << endl;
 		return;
 	}

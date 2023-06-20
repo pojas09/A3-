@@ -6,12 +6,14 @@
 #include "cliente.h"
 #include "funcionario.h"
 
+using namespace std;
+
     class Sistema {
 
         private:
 
-        std::vector<Cliente*> clientes;
-        std::vector<Funcionario*> funcionarios;
+         vector<Cliente*> clientes;
+         vector<Funcionario*> funcionarios;
       
         public:
 
@@ -19,10 +21,12 @@
 
         void cadastrarCliente();
         void cadastrarFuncionario();
-        
+        void removerFuncionario(const string& login, const string& senha);
+
         bool autenticarCliente(const string& login, const string& senha);
         bool autenticarFuncionario(const string& login, const string& senha);
         string obterCpfCliente(const string& login);
+        Cliente* obterCliente(const string& login);
         Cliente criarCliente();
         Funcionario criarFuncionario();
     };

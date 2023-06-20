@@ -128,21 +128,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="carro.cpp" />
+    <ClCompile Include="checkin.cpp" />
+    <ClCompile Include="checkout.cpp" />
     <ClCompile Include="cliente.cpp" />
     <ClCompile Include="compacto.h" />
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="frota.cpp" />
     <ClCompile Include="funcionario.cpp" />
-    <ClCompile Include="pedido.cpp" />
+    <ClCompile Include="registro.cpp" />
     <ClCompile Include="sistema.cpp" />
     <ClCompile Include="usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="carro.h" />
+    <ClInclude Include="checkin.h" />
+    <ClInclude Include="checkout.h" />
     <ClInclude Include="cliente.h" />
     <ClInclude Include="frota.h" />
     <ClInclude Include="funcionario.h" />
-    <ClInclude Include="pedido.h" />
+    <ClInclude Include="registro.h" />
     <ClInclude Include="sedan.h" />
     <ClInclude Include="sistema.h" />
     <ClInclude Include="suv.h" />

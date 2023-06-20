@@ -7,14 +7,15 @@
 #include "sedan.h"
 #include "funcionario.h"
 
+using namespace std;
+
     class Frota {
 
         private:
 
-        Funcionario funcionario;
-        std::vector<Sedan*> sedans;
-        std::vector<SUV*> suvs;
-        std::vector<Compacto*> compactos;
+        vector<Sedan*> sedans;
+        vector<SUV*> suvs;
+        vector<Compacto*> compactos;
         string endereco;
  
 
@@ -44,6 +45,10 @@
 
         string obterModeloCarro(const string& placa);
         string obterTipoCarro(const string& placa);
+        float obterPrecoCarro(const string& placa);
+        Carro* obterCarro(const string& placa);
+
+
 };
 
 #endif

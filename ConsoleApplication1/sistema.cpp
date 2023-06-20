@@ -179,6 +179,19 @@ void Sistema::cadastrarFuncionario()
 	cout << "Funcionario cadastrado com sucesso!!!" << endl;
 }
 
+void Sistema::removerFuncionario(const string& login, const string& senha)
+{
+	for (auto it = funcionarios.begin(); it != funcionarios.end(); ++it) {
+		if ((*it)->getLogin() == login && (*it)->getSenha() == senha) {
+			delete* it;
+			funcionarios.erase(it);
+			cout << "Funcionário removido com sucesso!" << endl;
+			return;
+		}
+	}
+	cout << "\nNenhum funcionário encontrado!" << endl;
+}
+
 bool Sistema::autenticarCliente(const string& login, const string& senha)
 {
 	for (const auto& cliente : clientes) {
@@ -210,5 +223,15 @@ string Sistema::obterCpfCliente(const string& login)
 	}
 	return "";
 }
+
+Cliente* Sistema::obterCliente(const string& login) {
+	for (Cliente* cliente : clientes) {
+		if (cliente->getLogin() == login) {
+			return cliente;
+		}
+	}
+	return nullptr;
+}
+
 
 

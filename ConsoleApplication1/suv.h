@@ -13,6 +13,11 @@ using namespace std;
 
 		public:
 
+		SUV();
+
+		SUV(const string& modelo, const string& tipoCarro, const string& cor, const int& ano, const float& preco, const string& placa, const int& potencia, const int& bagagem, const int& gasolina, const bool& gps)
+		: Carro(modelo, tipoCarro, cor, ano, preco, placa, potencia, bagagem, gasolina, gps) {}
+
 		static string getNomeModelo(ModeloSuv modeloEscolhido) {
 
 			switch (modeloEscolhido) {

@@ -70,6 +70,11 @@ float Carro::getPreco() const
 	return preco;
 }
 
+Frota* Carro::getFrota()
+{
+	return frota;
+}
+
 void Carro::setCor(const string& novaCor) 
 {
 	cor = novaCor;
@@ -118,6 +123,11 @@ void Carro::setPlaca(const string& novaPlaca)
 void Carro::setBagagem(const int& novaBagagem)
 {
 	bagagem = novaBagagem;
+}
+
+void Carro::setFrota(Frota* novaFrota)
+{
+	frota = novaFrota;
 }
 
 
