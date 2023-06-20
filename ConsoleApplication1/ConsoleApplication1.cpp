@@ -1,6 +1,7 @@
 #include <iostream>
+#include "carro.h"
+#include "usuario.h"
 #include "sistema.h"
-#include "cliente.h"
 #include "frota.h"
 #include "registro.h"
 
@@ -16,8 +17,6 @@ int main()
 	Registro registro;
 	Sistema sistema;
 	Frota frota;
-
-	frota.setEndereco("Av. Brasília");
 
 	do {
 		
@@ -177,7 +176,7 @@ int main()
 								frota.removerCompacto();
 								break;
 							case 3:
-								frota.removerCompacto();
+								frota.removerSuv();
 								break;
 							default:
 								cout << "Opção inválida!" << endl;

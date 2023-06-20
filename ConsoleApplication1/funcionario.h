@@ -14,6 +14,7 @@ using namespace std;
 
         int id_funcionario;
 
+
         public:
 
         Funcionario();

@@ -12,7 +12,6 @@ private:
 
 	std::vector<Checkin*> entradas;
 	std::vector<Checkout*> saidas;
-	Frota frota;
 
 public:
 

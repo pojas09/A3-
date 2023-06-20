@@ -49,7 +49,6 @@ void Registro::cadastrarCheckout(const string& placa)
            string cpf = checkin->getCliente()->getCpf();
            float preco = checkin->getCarro()->getPreco();
            string tipoCarro = checkin->getCarro()->getTipo_carro();
-           string endereco = checkin->getCarro()->getFrota()->getEndereco();
 
            cout << "\n------ Revisão do Veículo ------" << endl;
            cout << "(1) Houve Prejuízo" << endl;
@@ -57,7 +56,8 @@ void Registro::cadastrarCheckout(const string& placa)
            int opcaoRevisao;
            cin >> opcaoRevisao;
 
-           float danos, multas, gasolinaGasta, precoFinal = 0;
+           float danos, multas, gasolinaGasta, precoFinal;
+           danos = multas = gasolinaGasta = precoFinal = 0;
 
            if (opcaoRevisao == 1) {
                cout << "\nQual o valor do dano causado: ";
@@ -91,7 +91,6 @@ void Registro::exibirCheckouts()
         cout << "Data do check-out: " << checkout->getDataSaida() << endl;
         cout << "Modelo do carro: " << checkout->getCarro()->getModelo() << endl;
         cout << "Categoria: " << checkout->getCarro()->getTipo_carro() << endl;
-        cout << "Endereço da Agência: " << checkout->getCarro()->getFrota()->getEndereco() << endl;
         cout << "Dano Financeiro: " << checkout->getDanos() << endl;
         cout << "Valor Multas: " << checkout->getMultas() << endl;
         cout << "Valor Gasolina: " << checkout->getGasolina() << endl;
@@ -136,7 +135,6 @@ void Registro::exibirCheckins()
    cout << "Modelo do carro: " << checkin->getCarro()->getModelo() << endl;
    cout << "Categoria: " << checkin->getCarro()->getTipo_carro() << endl;
    cout << "Preço Parcial: " << (checkin->getCarro()->getPreco() * checkin->getDias()) << endl;
-   cout << "Endereço da Agência: " << checkin->getCarro()->getFrota()->getEndereco() << endl;
         }
 }
 
@@ -153,7 +151,6 @@ void Registro::exibirCheckinsCliente(const string& login)
            cout << "Modelo do carro: " << checkin->getCarro()->getModelo() << endl;
            cout << "Categoria: " << checkin->getCarro()->getTipo_carro() << endl;
            cout << "Preço Parcial: " << (checkin->getCarro()->getPreco() * checkin->getDias()) << endl;
-           cout << "Endereço da Agência: " << checkin->getCarro()->getFrota()->getEndereco() << endl;
        }
     }
 }
@@ -170,7 +167,6 @@ void Registro::exibirCheckoutsCliente(const string& login)
             cout << "Data do check-out: " << checkout->getDataSaida() << endl;
             cout << "Modelo do carro: " << checkout->getCarro()->getModelo() << endl;
             cout << "Categoria: " << checkout->getCarro()->getTipo_carro() << endl;
-            cout << "Endereço da Agência: " << checkout->getCarro()->getFrota()->getEndereco() << endl;
             cout << "Dano Financeiro: " << checkout->getDanos() << endl;
             cout << "Valor Multas: " << checkout->getMultas() << endl;
             cout << "Valor Gasolina: " << checkout->getGasolina() << endl;

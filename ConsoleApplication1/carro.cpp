@@ -2,39 +2,29 @@
 
 Carro::Carro()
 {
-	modelo = "";
-	ano = 0;
-	cor = "";
-	tipoCarro = "";
-	preco = 0;
-	placa = "";
-	potencia = 0;
-	bagagem = 0;
-	gasolina = 0;
-	gps = false;
 }
 
-Carro::Carro(const string& modelo, const string& tipoCarro, const string& cor, const int& ano, const float& preco, const string& placa, const int& potencia, const int& bagagem, const int& gasolina, const bool& gps)
+Carro::Carro(const string& modelo, const string& tipoCarro, const string& cor, int ano, float preco, const string& placa, int potencia, int bagagem, float gasolina, bool gps)
 : modelo(modelo), tipoCarro(tipoCarro), cor(cor), ano(ano), preco(preco), placa(placa), potencia(potencia), bagagem(bagagem), gasolina(gasolina), gps(gps){}
 
 
-int Carro::getAno() const
+int Carro::getAno()
 {
 	return ano;
 }
 
 
-int Carro::getPotencia() const
+int Carro::getPotencia() 
 {
 	return potencia;
 }
 
-int Carro::getBagagem() const
+int Carro::getBagagem() 
 {
 	return bagagem;
 }
 
-float Carro::getGasolina() const
+float Carro::getGasolina() 
 {
 	return gasolina;
 }
@@ -60,19 +50,14 @@ string Carro::getTipo_carro() const
 	return tipoCarro;
 }
 
-bool Carro::getGps() const
+bool Carro::getGps()
 {
 	return gps;
 }
 
-float Carro::getPreco() const
+float Carro::getPreco() 
 {
 	return preco;
-}
-
-Frota* Carro::getFrota()
-{
-	return frota;
 }
 
 void Carro::setCor(const string& novaCor) 
@@ -80,12 +65,12 @@ void Carro::setCor(const string& novaCor)
 	cor = novaCor;
 }
 
-void Carro::setGps(const bool& novoGps)
+void Carro::setGps(bool novoGps)
 {
 	gps = novoGps;
 }
 
-void Carro::setPreco(const float& novoPreco)
+void Carro::setPreco(float novoPreco)
 {
 	preco = novoPreco;
 }
@@ -100,17 +85,17 @@ void Carro::setTipo_carro(const string& novoTipo)
 	tipoCarro = novoTipo;
 }
 
-void Carro::setAno(const int& novoAno)
+void Carro::setAno(int novoAno)
 {
 	ano = novoAno;
 }
 
-void Carro::setPotencia(const int& novaPotencia)
+void Carro::setPotencia(int novaPotencia)
 {
 	potencia = novaPotencia;
 }
 
-void Carro::setGasolina(const float& novaGasolina)
+void Carro::setGasolina(float novaGasolina)
 {
 	gasolina = novaGasolina;
 }
@@ -120,14 +105,9 @@ void Carro::setPlaca(const string& novaPlaca)
 	placa = novaPlaca;
 }
 
-void Carro::setBagagem(const int& novaBagagem)
+void Carro::setBagagem(int novaBagagem)
 {
 	bagagem = novaBagagem;
-}
-
-void Carro::setFrota(Frota* novaFrota)
-{
-	frota = novaFrota;
 }
 
 

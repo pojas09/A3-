@@ -4,13 +4,12 @@
 #include <iostream>
 #include "carro.h"
 #include "cliente.h"
-#include "frota.h"
 
 using namespace std;
 
 class Checkin {
 private:
-   
+
     string dataEntrada;
     string dataSaida;
     int dias;

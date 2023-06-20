@@ -6,22 +6,6 @@ using namespace std;
 
 Frota::Frota()
 {	
-	Sedan* novoSedan = new Sedan("Volkswagen Virtus", "Sedan", "Cinza", 2020, 92, "ASR2073", 115, 521, 52, 1);
-	sedans.push_back(novoSedan);
-	Sedan* novoSedan = new Sedan("Fiat Cronos", "Sedan", "Azul", 2022, 92, "ISA2808", 105, 500, 50, 0);
-	sedans.push_back(novoSedan);
-	Sedan* novoSedan = new Sedan("Hyundai HB20S", "Sedan", "Branco", 2019, 92, "BRU1403", 97, 450, 45, 0);
-	sedans.push_back(novoSedan);
-	Sedan* novoSedan = new Sedan("BMW Serie 5", "Sedan", "Preto", 2022, 92, "SAM2109", 290, 410, 55, 1);
-	sedans.push_back(novoSedan);
-	SUV* novoSUV = new SUV("T-Cross", "SUV", "Branco", 2021, 185, "ITA0964", 128, 373, 52, 1);
-	suvs.push_back(novoSUV);
-	SUV* novoSUV = new SUV("BMW X1", "SUV", "Branco", 2022, 185, "GMX4582", 150, 350, 55, 1);
-	suvs.push_back(novoSUV);
-	Compacto* novoCompacto = new Compacto("Fiat Mobi", "Compacto", "Vermelho", 2019, 78, "XSA13O2", 80, 215, 40, 0);
-	compactos.push_back(novoCompacto);
-	Compacto* novoCompacto = new Compacto("Hyundai HB20", "Compacto", "Cinza", 2020, 75, "IML1341", 92, 220, 45, 0);
-	compactos.push_back(novoCompacto);
 }   
 
 void Frota::cadastrarSuv()
@@ -233,78 +217,9 @@ Carro Frota::criarCarro()
 	} while (gps != 1 && gps != 0);
 
 	Carro novoCarro("", "", cor, ano, preco, placa, potencia, bagagem, gasolina, gps);
-
 	return novoCarro;
 }
 
-string Frota::obterModeloCarro(const string& placa)
-{
-	for (const auto& suv : suvs) {
-		if (suv->getPlaca() == placa) {
-			return suv->getModelo();
-			
-		}
-	}
-
-	for (const auto& sedan : sedans) {
-		if (sedan->getPlaca() == placa) {
-			return sedan->getModelo();
-		}
-	}
-
-	for (const auto& compacto : compactos) {
-		if (compacto->getPlaca() == placa) {
-			return compacto->getModelo();
-		}
-	}
-	return "";
-}
-
-string Frota::obterTipoCarro(const string& placa)
-{
-	for (const auto& suv : suvs) {
-		if (suv->getPlaca() == placa) {
-			return suv->getTipo_carro();
-
-		}
-	}
-
-	for (const auto& sedan : sedans) {
-		if (sedan->getPlaca() == placa) {
-			return sedan->getTipo_carro();
-		}
-	}
-
-	for (const auto& compacto : compactos) {
-		if (compacto->getPlaca() == placa) {
-			return compacto->getTipo_carro();
-		}
-	}
-	return "";
-}
-
-float Frota::obterPrecoCarro(const string& placa)
-{
-	for (const auto& suv : suvs) {
-		if (suv->getPlaca() == placa) {
-			return suv->getPreco();
-
-		}
-	}
-
-	for (const auto& sedan : sedans) {
-		if (sedan->getPlaca() == placa) {
-			return sedan->getPreco();
-		}
-	}
-
-	for (const auto& compacto : compactos) {
-		if (compacto->getPlaca() == placa) {
-			return compacto->getPreco();
-		}
-	}
-	return 0;
-}
 
 Carro* Frota::obterCarro(const string & placa)
 {
@@ -562,14 +477,3 @@ void Frota::exibirCompactos()
 		cout << "------------------------" << endl;
 	}
 }
-
-void Frota::setEndereco(const string& novoEndereco)
-{
-	endereco = novoEndereco;
-}
-
-string Frota::getEndereco() const
-{
-	return endereco;
-}
-

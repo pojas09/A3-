@@ -13,9 +13,9 @@ using namespace std;
 
 		public:
 
-		Compacto();
-		Compacto(const string& modelo, const string& tipoCarro, const string& cor, const int& ano, const float& preco, const string& placa, const int& potencia, const int& bagagem, const int& gasolina, const bool& gps)
-		: Carro(modelo, tipoCarro, cor, ano, preco, placa, potencia, bagagem, gasolina, gps) {}
+			Compacto() {
+
+			};
 
 		static string getNomeModelo(ModeloCompacto modeloEscolhido) {
 
@@ -23,20 +23,20 @@ using namespace std;
 
 			case ModeloCompacto::Fiat_Mobi:
 
-			return "Fiat Mobi";
-			break;
+				return "Fiat Mobi";
+				break;
 
 			case ModeloCompacto::Hyundai_HB20:
 
-			return "Hyundai HB20";
-			break;
+				return "Hyundai HB20";
+				break;
 
 			default:
 
-			return "";
-			break;
+				return "";
+				break;
 			}
-		}
+		};
 	};
 
 #endif

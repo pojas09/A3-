@@ -214,15 +214,6 @@ bool Sistema::autenticarFuncionario(const string& login, const string& senha)
 	return false;
 }
 
-string Sistema::obterCpfCliente(const string& login)
-{
-	for (const auto& cliente : clientes) {
-		if (cliente->getLogin() == login) {
-			return cliente->getCpf();
-		}
-	}
-	return "";
-}
 
 Cliente* Sistema::obterCliente(const string& login) {
 	for (Cliente* cliente : clientes) {
