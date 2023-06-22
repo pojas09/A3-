@@ -1,19 +1,32 @@
 #include "frota.h"
-#include <iostream>
-
-using namespace std;
-
 
 Frota::Frota()
 {	
+	// Catálogo já cadastrado no sistema
+	Sedan* novoSedan = new Sedan("Volkswagen Virtus", "Sedan", "Cinza", 2020, 92, "ASR2073", 115, 521, 52, 1);
+	sedans.push_back(novoSedan);
+	Sedan* novoSedan2 = new Sedan("Fiat Cronos", "Sedan", "Azul", 2022, 92, "ISA2808", 105, 500, 50, 0);
+	sedans.push_back(novoSedan2);
+	Sedan* novoSedan3 = new Sedan("Hyundai HB20S", "Sedan", "Branco", 2019, 92, "BRU1403", 97, 450, 45, 0);
+	sedans.push_back(novoSedan3);
+	Sedan* novoSedan4 = new Sedan("BMW Serie 5", "Sedan", "Preto", 2022, 92, "SAM2109", 290, 410, 55, 1);
+	sedans.push_back(novoSedan4);
+	SUV* novoSUV = new SUV("T-Cross", "SUV", "Branco", 2021, 185, "ITA0964", 128, 373, 52, 1);
+	suvs.push_back(novoSUV);
+	SUV* novoSUV2 = new SUV("BMW X1", "SUV", "Branco", 2022, 185, "GMX4582", 150, 350, 55, 1);
+	suvs.push_back(novoSUV2);
+	Compacto* novoCompacto = new Compacto("Fiat Mobi", "Compacto", "Vermelho", 2019, 78, "XSA13O2", 80, 215, 40, 0);
+	compactos.push_back(novoCompacto);
+	Compacto* novoCompacto2 = new Compacto("Hyundai HB20", "Compacto", "Cinza", 2020, 75, "IML1341", 92, 220, 45, 0);
+	compactos.push_back(novoCompacto2);
 }   
 
 void Frota::cadastrarSuv()
 {
-	ModeloSuv modeloEscolhido;
+	ModeloSuv modeloEscolhido = ModeloSuv::BMWX1;  // Incializa a variável com um valor válido
 	int opcaoModelo;
 
-	Carro novoCarro = criarCarro();
+	Carro novoCarro = criarCarro();                // Chama a função criarCarro e a armazena o objeto retornado na variável novoCarro
 
 	if (verificarPlaca(novoCarro.getPlaca())) {
 		cout << "Já existe um veículo com essa placa!" << endl;
@@ -39,7 +52,7 @@ void Frota::cadastrarSuv()
 		break;
 	}
 
-	novoSuv.setModelo(SUV::getNomeModelo(modeloEscolhido));
+	novoSuv.setModelo(novoSuv.getNomeModeloSUV(modeloEscolhido));  // Define todas as variáveis do SUV
 	novoSuv.setAno(novoCarro.getAno());
 	novoSuv.setTipo_carro("SUV");
 	novoSuv.setCor(novoCarro.getCor());
@@ -56,7 +69,7 @@ void Frota::cadastrarSuv()
 
 void Frota::cadastrarSedan()
 {	
-	ModeloSedan modeloEscolhido;
+	ModeloSedan modeloEscolhido = ModeloSedan::Volkswagen_Virtus;
 	int opcaoModelo;
 	
 	Carro novoCarro = criarCarro();
@@ -93,7 +106,7 @@ void Frota::cadastrarSedan()
 			break;
 	}
 
-	novoSedan.setModelo(Sedan::getNomeModelo(modeloEscolhido));
+	novoSedan.setModelo(novoSedan.getNomeModeloSedan(modeloEscolhido));
 	novoSedan.setAno(novoCarro.getAno());
 	novoSedan.setTipo_carro("Sedan");
 	novoSedan.setCor(novoCarro.getCor());
@@ -110,7 +123,7 @@ void Frota::cadastrarSedan()
 
 void Frota::cadastrarCompacto()
 {
-	ModeloCompacto modeloEscolhido;
+	ModeloCompacto modeloEscolhido = ModeloCompacto::Fiat_Mobi;
 	int opcaoModelo;
 
 	Carro novoCarro = criarCarro();
@@ -140,7 +153,7 @@ void Frota::cadastrarCompacto()
 			break;
 	}
 
-	novoCompacto.setModelo(Compacto::getNomeModelo(modeloEscolhido));
+	novoCompacto.setModelo(novoCompacto.getNomeModeloCompacto(modeloEscolhido));
 	novoCompacto.setAno(novoCarro.getAno());
 	novoCompacto.setTipo_carro("Compacto");
 	novoCompacto.setCor(novoCarro.getCor());
@@ -154,7 +167,6 @@ void Frota::cadastrarCompacto()
 	compactos.push_back(new Compacto(novoCompacto));
 	cout << "Carro cadastrado com sucesso!!!" << endl;
 }
-
 
 Carro Frota::criarCarro()
 {
@@ -221,7 +233,7 @@ Carro Frota::criarCarro()
 }
 
 
-Carro* Frota::obterCarro(const string & placa)
+Carro* Frota::obterCarro(const string & placa)  // Checa todos os vetores de carro na frota, caso encontre, retorna o objeto
 {
 	for (const auto& sedan : sedans) {
 		if (sedan->getPlaca() == placa) {
@@ -238,7 +250,7 @@ Carro* Frota::obterCarro(const string & placa)
 		return suv;
 		}
 	}
-	return nullptr;
+	return nullptr;   // Caso não encontre, retorna um ponteiro nulo
 }
 
 void Frota::removerSuv()
@@ -390,8 +402,6 @@ void Frota::alterarCompacto()
 		}
 	}
 }
-
-
 
 bool Frota::verificarPlaca(const string& placa)
 {

@@ -4,11 +4,11 @@
 #include <iostream>
 #include "carro.h"
 #include "cliente.h"
-
 using namespace std;
 
 class Checkin {
-private:
+
+    private:
 
     string dataEntrada;
     string dataSaida;
@@ -16,19 +16,21 @@ private:
     Carro* carro;
     Cliente* cliente;
 
-public:
+    public:
 
-    Checkin();
-    Checkin(const string& dataEntrada, const string& dataSaida, int dias, Carro* carro, Cliente* cliente);
-    void setDataEntrada(const string& checkin);
-    void setDataSaida(const string& checkout);
-    void setDias(const int& diasAluguel);
+    // Construtores
+    Checkin(const string& dataEntrada, const string& dataSaida, const int& dias, Carro* carro, Cliente* cliente);
 
+    // Getters
     string getDataEntrada() const;
     string getDataSaida() const;
     int getDias() const;
     Carro* getCarro() const;
     Cliente* getCliente() const;
-};
 
+    // Setters
+    void setDataEntrada(const string& checkin);
+    void setDataSaida(const string& checkout);
+    void setDias(const int& diasAluguel);
+};
 #endif

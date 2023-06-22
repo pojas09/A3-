@@ -132,7 +132,7 @@
     <ClCompile Include="checkout.cpp" />
     <ClCompile Include="cliente.cpp" />
     <ClCompile Include="compacto.h" />
-    <ClCompile Include="ConsoleApplication1.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="frota.cpp" />
     <ClCompile Include="funcionario.cpp" />
     <ClCompile Include="registro.cpp" />

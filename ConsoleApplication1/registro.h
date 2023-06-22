@@ -1,30 +1,33 @@
 #ifndef REGISTRO_H
 #define REGISTRO_H
+
 #include <vector>
 #include "checkout.h"
-#include "frota.h"
-
 using namespace std;
 
 class Registro {
 
-private:
+	private:
 
-	std::vector<Checkin*> entradas;
-	std::vector<Checkout*> saidas;
+	vector<Checkin*> entradas;
+	vector<Checkout*> saidas;
 
-public:
+	public:
 
+	// Construtores
 	Registro();
+#
 	void cadastrarCheckin(Carro* carro, Cliente* cliente);
 	void cadastrarCheckout(const string& placa);
 
+	// Exibe todos os registros
 	void exibirCheckins();
 	void exibirCheckouts();
+	
+	void removerCheckin(const string& placa);
+	void removerCheckout(const string& placa);
 
-	void removerCheckins(const string& placa);
-	void removerCheckouts(const string& placa);
-
+	// Exibe os registros associados a um cliente
 	void exibirCheckinsCliente(const string& login);
 	void exibirCheckoutsCliente(const string& login);
 

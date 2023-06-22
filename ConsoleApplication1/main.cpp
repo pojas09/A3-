@@ -1,18 +1,13 @@
 #include <iostream>
-#include "carro.h"
-#include "usuario.h"
 #include "sistema.h"
 #include "frota.h"
 #include "registro.h"
-
 using namespace std;
 
 int main()
 {
-
-	string login, senha, email, nome, cpf, nascimento, telefone, placaEscolhida;
-
-	bool voltar, voltar2, voltar3;
+	string login, senha, email, nome, cpf, nascimento, telefone, placaEscolhida; // Variáveis dos usuários
+	bool voltar, voltar2, voltar3; // Controladores de retorno 
 
 	Registro registro;
 	Sistema sistema;
@@ -61,11 +56,9 @@ int main()
 							Cliente* cliente = sistema.obterCliente(login);
 							
 							registro.cadastrarCheckin(carroEscolhido, cliente);
-							
 						}
 						else {
 							cout << "Placa inválida!" << endl;
-
 						}
 
 						voltar3 = true;
@@ -125,6 +118,7 @@ int main()
 						cout << "(9) Validar um Checkout" << endl;
 						cout << "(10) Excluir um Checkout" << endl;
 						cout << "(11) Excluir um Checkin" << endl;
+						cout << "(12) Sair" << endl;
 						int opcaoFuncionario2;
 						cin >> opcaoFuncionario2;
 
@@ -250,14 +244,14 @@ int main()
 						case 10:
 							cout << "Informe a placa do carro: ";
 							cin >> placaExcluirCheckout;
-							registro.removerCheckouts(placaExcluirCheckout);
+							registro.removerCheckout(placaExcluirCheckout);
 							voltar2 = true;
 							break;
 
 						case 11:
 							cout << "Informe a placa do carro: ";
 							cin >> placaExcluirCheckin;
-							registro.removerCheckins(placaExcluirCheckin);
+							registro.removerCheckin(placaExcluirCheckin);
 							voltar2 = true;
 							break;
 

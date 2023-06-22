@@ -1,8 +1,6 @@
 #include "registro.h"
 
-Registro::Registro()
-{
-}
+Registro::Registro() {}
 
 void Registro::cadastrarCheckin(Carro* carro, Cliente* cliente)
 {
@@ -35,10 +33,9 @@ void Registro::cadastrarCheckin(Carro* carro, Cliente* cliente)
 
 void Registro::cadastrarCheckout(const string& placa)
 {
-
-   for (auto it = entradas.begin(); it != entradas.end(); ++it) {
-       if ((*it)->getCarro()->getPlaca() == placa) {
-           Checkin* checkin = *it;
+   for (auto it = entradas.begin(); it != entradas.end(); ++it) {  // Percorre o vetor entradas
+       if ((*it)->getCarro()->getPlaca() == placa) {               // Checkin para qual o ponteiro it aponta tem a mesma placa 
+           Checkin* checkin = *it;                                 // Ponteiro de classe checkin recebe o checkin contido no ponteiro it
 
            Carro* carro = checkin->getCarro();
            Cliente* cliente = checkin->getCliente();
@@ -50,7 +47,7 @@ void Registro::cadastrarCheckout(const string& placa)
            float preco = checkin->getCarro()->getPreco();
            string tipoCarro = checkin->getCarro()->getTipo_carro();
 
-           cout << "\n------ Revisão do Veículo ------" << endl;
+           cout << "\n------ Revisão do Veículo ------" << endl;  // Abre opção para o funcinário informar os resultados de seu relatório
            cout << "(1) Houve Prejuízo" << endl;
            cout << "(2) Não Houve" << endl;
            int opcaoRevisao;
@@ -98,7 +95,7 @@ void Registro::exibirCheckouts()
     }
 }
 
-void Registro::removerCheckins(const string& placa)
+void Registro::removerCheckin(const string& placa)
 {
     for (auto it = entradas.begin(); it != entradas.end(); ++it) {
         if ((*it)->getCarro()->getPlaca() == placa) {
@@ -111,7 +108,7 @@ void Registro::removerCheckins(const string& placa)
     cout << "Placa inválida ou check-in não encontrado!" << endl;
 }
 
-void Registro::removerCheckouts(const string& placa)
+void Registro::removerCheckout(const string& placa)
 {
     for (auto it = saidas.begin(); it != saidas.end(); ++it) {
         if ((*it)->getCarro()->getPlaca() == placa) {

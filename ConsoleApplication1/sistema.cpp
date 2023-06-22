@@ -1,9 +1,8 @@
 #include "sistema.h"
-#include "cliente.h"
-#include "funcionario.h"
 
 Sistema::Sistema()
 {
+	// Conta administrador
 	Funcionario* novoFuncionario = new Funcionario("admin", "00000", "locadora@gmail.com", "administrador", "", "", "", (clientes.size() + 1));
 	funcionarios.push_back(novoFuncionario);
 }
@@ -128,7 +127,6 @@ Funcionario Sistema::criarFuncionario() {
 	return novoFuncionario;
 }
 
-
 void Sistema::cadastrarCliente()
 {
 
@@ -214,7 +212,6 @@ bool Sistema::autenticarFuncionario(const string& login, const string& senha)
 	return false;
 }
 
-
 Cliente* Sistema::obterCliente(const string& login) {
 	for (Cliente* cliente : clientes) {
 		if (cliente->getLogin() == login) {
@@ -223,6 +220,3 @@ Cliente* Sistema::obterCliente(const string& login) {
 	}
 	return nullptr;
 }
-
-
-

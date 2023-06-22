@@ -5,40 +5,40 @@
 #include "suv.h"
 #include "compacto.h"
 #include "sedan.h"
-
 using namespace std;
 
-    class Frota {
+class Frota {
 
-        private:
+	private:
 
-        vector<Sedan*> sedans;
-        vector<SUV*> suvs;
-        vector<Compacto*> compactos;
+	vector<Sedan*> sedans;
+    vector<SUV*> suvs;
+    vector<Compacto*> compactos;
  
-        public:
+    public:
 
-        Frota();
-        void cadastrarSuv();
-        void cadastrarSedan();
-        void cadastrarCompacto();
+    // Construtores
+    Frota();
 
-        void removerSuv();
-        void removerSedan();
-        void removerCompacto();
+    void cadastrarSuv();
+    void cadastrarSedan();
+    void cadastrarCompacto();
 
-        void alterarSuv();
-        void alterarSedan();
-        void alterarCompacto();
+    void removerSuv();
+    void removerSedan();
+    void removerCompacto();
 
-        bool verificarPlaca(const string& placa);
-        void exibirSedans();
-        void exibirSUVs();
-        void exibirCompactos();
+    void alterarSuv();
+    void alterarSedan();
+    void alterarCompacto();
 
-        Carro criarCarro();
-        Carro* obterCarro(const string& placa);
+    bool verificarPlaca(const string& placa); // Verifica se a placa já existe
+
+    void exibirSedans();
+    void exibirSUVs();
+    void exibirCompactos();
+
+    Carro criarCarro();
+    Carro* obterCarro(const string& placa); // Retorna a instância de carro que possui a placa escolhida
 };
-
 #endif
-
